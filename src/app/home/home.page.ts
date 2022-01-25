@@ -100,7 +100,6 @@ export class HomePage {
   
   delete(task : any){
     this.tasks = this.tasks.filter(taskArray=> task != taskArray);
-    CSSAnimation
     this.updateLocalStorage();
   }
 }

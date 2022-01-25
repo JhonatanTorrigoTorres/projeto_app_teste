@@ -10,7 +10,8 @@
   <ion-list class="animate__animated animate__backInUp">
     <ion-item-sliding *ngFor="let task of tasks">
       <ion-item (click)="openActions(task)">
-        <ion-label>{{task.name}}</ion-label>
+        <ion-label *ngIf="!task.done">{{task.name}}</ion-label>
+        <ion-label *ngIf="task.done"><del>{{task.name}}</del></ion-label>
         <ion-icon slot="start" name="radio-button-off" *ngIf="!task.done"></ion-icon>
         <ion-icon slot="start" name="checkmark-circle" color="success" *ngIf="task.done"></ion-icon>
       </ion-item>
