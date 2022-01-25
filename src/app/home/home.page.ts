@@ -97,4 +97,10 @@ export class HomePage {
     const { role, data } = await actionSheet.onDidDismiss();
     console.log('onDidDismiss resolved with role and data', role, data);
   }
+  
+  delete(task : any){
+    this.tasks = this.tasks.filter(taskArray=> task != taskArray);
+    CSSAnimation
+    this.updateLocalStorage();
+  }
 }
