@@ -79,31 +79,12 @@ export class HomePage {
         text: task.done ? 'Desmarcar' : 'Marcar', 
         icon: task.done ? 'radio-button-off' : 'checkmark-circle',
         handler: () => {
-          task.done = !task.done
+          task.done = !task.done;
+          this.updateLocalStorage();
         }
       }, 
       {
-        text: 'Share',
-        icon: 'share',
-        data: 10,
-        handler: () => {
-          console.log('Share clicked');
-        }
-      }, {
-        text: 'Play (open modal)',
-        icon: 'caret-forward-circle',
-        data: 'Data value',
-        handler: () => {
-          console.log('Play clicked');
-        }
-      }, {
-        text: 'Favorite',
-        icon: 'heart',
-        handler: () => {
-          console.log('Favorite clicked');
-        }
-      }, {
-        text: 'Cancel',
+        text: 'Cancelar',
         icon: 'close',
         role: 'cancel',
         handler: () => {
@@ -115,8 +96,5 @@ export class HomePage {
 
     const { role, data } = await actionSheet.onDidDismiss();
     console.log('onDidDismiss resolved with role and data', role, data);
-  }
-
-}
   }
 }
